@@ -1,6 +1,6 @@
 import React from "react";
 import { StatusBar as ExpoStatusBar } from "expo-status-bar";
-import { StyleSheet, View, Text } from "react-native";
+import { StyleSheet, View } from "react-native";
 
 // Screens
 import { RestaurantsScreen } from "./src/features/restaurants/screens/Restaurants.screen";

@@ -1,13 +1,19 @@
 import React from "react";
 import { Text, View, StyleSheet } from "react-native";
+import styled from "styled-components/native";
 
 // Components --Packages
 import { Avatar, Button, Card, Paragraph } from "react-native-paper";
-import styled from "styled-components/native";
 
-const Title = styled.Text`
+const Title = styled(Text)`
   color: blue;
   font-weight: bold;
+  padding: 16px;
+`;
+
+const RestaurantCard = styled(Card)`
+  background-color: white;
+  elevation: 5;
 `;
 
 export const RestaurantInfoCardComponent = ({ restaurant = {} }) => {
@@ -25,24 +31,12 @@ export const RestaurantInfoCardComponent = ({ restaurant = {} }) => {
 
   //return <Text>{name}</Text>;
   return (
-    <Card key={name} elevation={5} style={styles.card}>
-      <Card.Title />
-      <Card.Cover source={{ uri: photos[0] }} />
-      <Card.Content>
-        <Text style={styles.text}>{name}</Text>
+    <RestaurantCard key={name} elevation={5}>
+      <RestaurantCard.Title />
+      <RestaurantCard.Cover source={{ uri: photos[0] }} />
+      <RestaurantCard.Content>
         <Title>{name}</Title>
-      </Card.Content>
-    </Card>
+      </RestaurantCard.Content>
+    </RestaurantCard>
   );
 };
-
-const styles = StyleSheet.create({
-  card: {
-    backgroundColor: "white",
-    elevation: 5, //seems to work only if we use it here (look at <Card /> )
-  },
-  text: {
-    padding: 16,
-    color: "purple",
-  },
-});

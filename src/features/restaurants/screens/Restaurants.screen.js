@@ -1,6 +1,19 @@
 import React from "react";
-
 import { StatusBar, StyleSheet, Text, View, SafeAreaView } from "react-native";
+import styled from "styled-components/native";
+
+const SearchContainer = styled(View)`
+  padding: ${spacing.md}px;
+`;
+const ListContainer = styled(View)`
+  background-color: blue;
+  flex: 1;
+`;
+
+const SafeArea = styled(SafeAreaView)`
+  flex: 1;
+  margin-top: ${StatusBar.currentHeight}px;
+`;
 
 // Components --Packages
 import { Searchbar } from "react-native-paper";
@@ -13,33 +26,16 @@ import { spacing } from "../../../utils/sizes";
 
 export const RestaurantsScreen = () => {
   return (
-    <SafeAreaView style={styles.safeArea}>
+    <SafeArea>
       {/* Search -------------------------------------------------------------*/}
-      <View style={styles.searchContainer}>
+      <SearchContainer>
         <Searchbar />
-      </View>
+      </SearchContainer>
 
       {/* List -------------------------------------------------------------*/}
-      <View style={styles.list}>
+      <ListContainer>
         <RestaurantInfoCardComponent />
-      </View>
-    </SafeAreaView>
+      </ListContainer>
+    </SafeArea>
   );
 };
-
-const styles = StyleSheet.create({
-  safeArea: {
-    flex: 1,
-    marginTop: StatusBar.currentHeight,
-  },
-  searchContainer: {
-    // backgroundColor: "green",
-    padding: 16,
-  },
-  list: {
-    backgroundColor: "blue",
-    flex: 1,
-  },
-  searchText: {},
-  listText: { padding: spacing.md },
-});
