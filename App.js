@@ -8,8 +8,6 @@ import { RestaurantsScreen } from "./src/features/restaurants/screens/Restaurant
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text> TEST</Text>
-
       <RestaurantsScreen />
       <ExpoStatusBar style="auto" />
     </View>
